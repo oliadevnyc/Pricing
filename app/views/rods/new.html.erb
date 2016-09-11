@@ -1,7 +1,22 @@
-<%= form_for @rod, html: {multipart: true} do |f| %>
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.submit %>
-<% end %>
+<style>
+label {
+  padding:5px;
+}
+</style>
+<div class="container"><br>
+  <%= form_for @rod, html: {multipart: true} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :price_painted %>
+    <%= f.text_field :price_painted %><br>
+    <%= f.label :price_plated %>
+    <%= f.text_field :price_plated %><br>
+    <%= f.label :model %>
+    <%= f.text_field :model %><br>
+    <%= f.label :rod_length %>
+    <%= f.text_field :rod_length %><br>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %><br>
+    <%= f.submit %>
+  <% end %>
+</div>

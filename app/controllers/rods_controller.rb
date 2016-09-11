@@ -19,6 +19,6 @@ class RodsController < ApplicationController
   private
 
   def rod_params
-    params.require(:rod).permit(:name, :avatar)
+    params.require(:rod).permit(:name, :avatar, :price_painted, :price_plated, :model, :rod_length)
   end
 end

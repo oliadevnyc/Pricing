@@ -22,24 +22,24 @@ th {
 <thead>
 <tr>
 <th>ID</th>
+<th>Photo</th>
 <th>Name</th>
 <th>Price Painted</th>
 <th>Price Plated</th>
-<th>Photo</th>
 <th>Model</th>
-<th>Length</th>
+<th>Rod Length</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <% @rods.each do |rod| %>
   <td><%= rod.id %></td>
-  <td><%= rod.name %></td>
-  <td><%= rod.price_painted %></td>
-  <td><%= rod.price_plated %></td>
   <td><%= image_tag rod.avatar.url(:thumb) %></td>
+  <td><%= rod.name %></td>
+  <td><input type="text" name="price_painted"></td>
+  <td><input type="text" name="price_plated"></td>
   <td><%= rod.model %></td>
-  <td><%= rod.rod_length %></td>
+  <td><%= rod.rod_length %>"</td>
 </tr>
   <% end %>
 </tbody>
