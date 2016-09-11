@@ -1,4 +1,5 @@
 class RodsController < ApplicationController
+
   def index
     @rods = Rod.all
   end
@@ -21,4 +22,5 @@ class RodsController < ApplicationController
   def rod_params
     params.require(:rod).permit(:name, :avatar, :price_painted, :price_plated, :model, :rod_length)
   end
+
 end
