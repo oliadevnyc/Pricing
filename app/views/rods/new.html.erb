@@ -1,0 +1,5 @@
+<%= form_for @rod, url: rods_path, html: { multipart: true } do |form| %>
+
+  <%= form.file_field :photo %>
+  <%= form.submit 'Upload', class: 'btn btn-primary' %>
+<% end %>
