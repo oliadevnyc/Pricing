@@ -17,8 +17,7 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem "paperclip"
 gem 'rails_12factor', group: :production
-gem 'aws-sdk', '< 2.0'
-gem 'fog'
+gem 'aws-sdk'
 gem "figaro"
 
 # Use jquery as the JavaScript library
