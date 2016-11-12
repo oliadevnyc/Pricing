@@ -2,6 +2,9 @@ class RodsController < ApplicationController
 
   def index
     @rods = Rod.all
+    #  @rod = Rod.find(params[:id])
+    @rod = Rod.new(params[:rod])
+    @rod.update(params[:rod]) if params[:rod].present?
   end
 
   def show
