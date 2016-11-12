@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: Pricing_production
-  username: Pricing
   password: <%= ENV['PRICING_DATABASE_PASSWORD'] %>
