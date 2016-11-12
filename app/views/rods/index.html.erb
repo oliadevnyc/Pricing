@@ -60,7 +60,7 @@ th {
 <tbody>
 <tr>
 <% @rods.each do |rod| %>
-  <td><%= rod.id %></td>
+  <td><%= link_to(@rod) rods_path %></td>
   <td><%= image_tag rod.avatar.url(:thumb) %></td>
   <td><%= rod.name %></td>
   <td><%= rod.price_painted %></td>

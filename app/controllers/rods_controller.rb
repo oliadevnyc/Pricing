@@ -12,6 +12,10 @@ class RodsController < ApplicationController
     @rod = Rod.new
   end
 
+  def edit
+    @rod = Rod.find(params[:id])
+  end
+
   def create
     @rod = Rod.create(rod_params)
     redirect_to rod_path(@rod)
