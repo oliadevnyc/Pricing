@@ -13,7 +13,7 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #4CAF50;
+    background-color: rgba(82,51,51,1);
     color: white;
 }
 </style>
@@ -28,6 +28,33 @@ th {
 <th>Price Plated</th>
 <th>Model</th>
 <th>Rod Length</th>
+<th>Color</th>
+<th>Retail</th>
+<th>Finish Technique</th>
+<th>Factory</th>
+<th>FOB</th>
+<th>Landed</th>
+<th>AMG Sell</th>
+<th>Total FOB</th>
+<th>Total Landed</th>
+<th>Total AMG Sell</th>
+<th>Total Retail Sales</th>
+<th>AMG Margin</th>
+<th>Retail Margin</th>
+<th>First Shipment Quantity</th>
+<th>Total Wave 2 Quantity</th>
+<th>40'HQ Container Max</th>
+<th>Brand</th>
+<th>Status</th>
+<th>Port</th>
+<th>ITS</th>
+<th>ETD</th>
+<th>ETA Port</th>
+<th>ETA Warehouse</th>
+<th>PO</th>
+<th>Cartons Shipping</th>
+<th>Quantity Shipping</th>
+
 </tr>
 </thead>
 <tbody>
@@ -36,10 +63,36 @@ th {
   <td><%= rod.id %></td>
   <td><%= image_tag rod.avatar.url(:thumb) %></td>
   <td><%= rod.name %></td>
-  <td><input type="text" name="price_painted"></td>
-  <td><input type="text" name="price_plated"></td>
+  <td><%= rod.price_painted %></td>
+  <td><%= rod.price_plated%></td>
   <td><%= rod.model %></td>
   <td><%= rod.rod_length %>"</td>
+  <td><%= rod.color %></td>
+  <td><%= rod.retail %></td>
+  <td><%= rod.finish_technique %></td>
+  <td><%= rod.factory %></td>
+  <td><%= rod.fob %></td>
+  <td><%= rod.landed %></td>
+  <td><%= rod.amg_sell %></td>
+  <td><%= rod.total_fob %></td>
+  <td><%= rod.total_landed %></td>
+  <td><%= rod.total_amg_sell %></td>
+  <td><%= rod.total_retail_sales %></td>
+  <td><%= rod.amg_margin %></td>
+  <td><%= rod.retail_margin %></td>
+  <td><%= rod.first_shipment_quantity %></td>
+  <td><%= rod.total_wave_2_quantity %></td>
+  <td><%= rod.forty_hq_container_max %></td>
+  <td><%= rod.brand %></td>
+  <td><%= rod.status %></td>
+  <td><%= rod.port %></td>
+  <td><%= rod.its_inspection_date %></td>
+  <td><%= rod.etd %></td>
+  <td><%= rod.eta_port %></td>
+  <td><%= rod.eta_warehouse %></td>
+  <td><%= rod.po %></td>
+  <td><%= rod.cartons_shipping %></td>
+  <td><%= rod.quantity_shipping %></td>
 </tr>
   <% end %>
 </tbody>

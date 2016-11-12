@@ -45,6 +45,7 @@ Rails.application.configure do
     :s3_credentials => {
       :bucket => 'rod-pricing2',
       :s3_credentials => "#{Rails.root}/config/aws.yml",
+      :s3_region => 'us-east-1'
     }
   }
 

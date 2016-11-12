@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911190039) do
+ActiveRecord::Schema.define(version: 20161112171026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20160911190039) do
     t.string   "photo"
     t.string   "model"
     t.string   "rod_length"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -37,6 +37,32 @@ ActiveRecord::Schema.define(version: 20160911190039) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "color"
+    t.decimal  "retail"
+    t.string   "finish_technique"
+    t.string   "factory"
+    t.decimal  "fob"
+    t.decimal  "landed"
+    t.decimal  "amg_sell"
+    t.decimal  "total_fob"
+    t.decimal  "total_landed"
+    t.decimal  "total_amg_sell"
+    t.decimal  "total_retail_sales"
+    t.decimal  "amg_margin"
+    t.decimal  "retail_margin"
+    t.integer  "first_shipment_quantity"
+    t.integer  "total_wave_2_quantity"
+    t.integer  "forty_hq_container_max"
+    t.string   "brand"
+    t.string   "status"
+    t.string   "port"
+    t.date     "its_inspection_date"
+    t.date     "etd"
+    t.date     "eta_port"
+    t.date     "eta_warehouse"
+    t.string   "po"
+    t.integer  "cartons_shipping"
+    t.integer  "quantity_shipping"
   end
 
   create_table "users", force: :cascade do |t|
