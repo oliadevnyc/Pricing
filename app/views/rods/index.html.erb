@@ -99,7 +99,7 @@ th {
 </table>
 
 <%=@rods.each do |rod| %>
-  <%= fields_for rod do |f| %>
+  <%= form_for rod do |f| %>
     <%= f.text_field :name %>
     <%= f.submit %>
   <% end %>

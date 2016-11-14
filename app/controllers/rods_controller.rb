@@ -1,10 +1,12 @@
 class RodsController < ApplicationController
 
   def index
+  #  @rods = Rod.all
     @rods = Rod.all
     #  @rod = Rod.find(params[:id])
-    @rod = Rod.new(params[:rod])
-    @rod.update(params[:rod]) if params[:rod].present?
+#    @rod = Rod.all.each
+#    @rods.update_attributes(rod_params) if params[:id].present?
+    #  @property.update_attributes(property_update_params)
   end
 
   def show
@@ -16,7 +18,23 @@ class RodsController < ApplicationController
   end
 
   def edit
-    @rod = Rod.find(params[:id])
+    @rod = Rod.find(:all)
+  end
+
+  def update
+    @rod = Rod.find_by(params[:rod][:id])
+    @rod.update_attributes(rod_params)
+    flash[:notice] = 'Reports were successfully updated.'
+    redirect_to :action => "index"
+
+
+
+    # @rod = Rod.new
+    # @rods = Rod.all
+    # @rods.each.update_attributes(rods_params)
+    # redirect_to rods_path(@rods)
+
+    #  @rod.update_attributes(rods_params)
   end
 
   def create
