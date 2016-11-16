@@ -1,0 +1,31 @@
+.form-rod{
+  width: 1307px;
+  overflow-x: scroll;
+}
+.form-rod input{
+  width: 80px;
+}
+.form-rod input[type="submit"]{
+  width: 100px;
+  margin-left: 35px;
+}
+.form-rod input[type="file"] {
+  width: 95px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: rgba(82,51,51,1);
+    color: white;
+}

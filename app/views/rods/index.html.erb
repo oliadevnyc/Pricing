@@ -1,113 +1,103 @@
 
-<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: rgba(82,51,51,1);
-    color: white;
-}
-</style>
-<br><br>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Photo</th>
-<th>Name</th>
-<th>Price Painted</th>
-<th>Price Plated</th>
-<th>Model</th>
-<th>Rod Length</th>
-<th>Color</th>
-<th>Retail</th>
-<th>Finish Technique</th>
-<th>Factory</th>
-<th>FOB</th>
-<th>Landed</th>
-<th>AMG Sell</th>
-<th>Total FOB</th>
-<th>Total Landed</th>
-<th>Total AMG Sell</th>
-<th>Total Retail Sales</th>
-<th>AMG Margin</th>
-<th>Retail Margin</th>
-<th>First Shipment Quantity</th>
-<th>Total Wave 2 Quantity</th>
-<th>40'HQ Container Max</th>
-<th>Brand</th>
-<th>Status</th>
-<th>Port</th>
-<th>ITS</th>
-<th>ETD</th>
-<th>ETA Port</th>
-<th>ETA Warehouse</th>
-<th>PO</th>
-<th>Cartons Shipping</th>
-<th>Quantity Shipping</th>
-
-</tr>
-</thead>
-<tbody>
-<tr>
-<% @rods.each do |rod| %>
-  <td><%#= link_to(@rod) rods_path %></td>
-  <td><%= image_tag rod.avatar.url(:thumb) %></td>
-  <td><%= rod.name %></td>
-  <td><%= rod.price_painted %></td>
-  <td><%= rod.price_plated%></td>
-  <td><%= rod.model %></td>
-  <td><%= rod.rod_length %>"</td>
-  <td><%= rod.color %></td>
-  <td><%= rod.retail %></td>
-  <td><%= rod.finish_technique %></td>
-  <td><%= rod.factory %></td>
-  <td><%= rod.fob %></td>
-  <td><%= rod.landed %></td>
-  <td><%= rod.amg_sell %></td>
-  <td><%= rod.total_fob %></td>
-  <td><%= rod.total_landed %></td>
-  <td><%= rod.total_amg_sell %></td>
-  <td><%= rod.total_retail_sales %></td>
-  <td><%= rod.amg_margin %></td>
-  <td><%= rod.retail_margin %></td>
-  <td><%= rod.first_shipment_quantity %></td>
-  <td><%= rod.total_wave_2_quantity %></td>
-  <td><%= rod.forty_hq_container_max %></td>
-  <td><%= rod.brand %></td>
-  <td><%= rod.status %></td>
-  <td><%= rod.port %></td>
-  <td><%= rod.its_inspection_date %></td>
-  <td><%= rod.etd %></td>
-  <td><%= rod.eta_port %></td>
-  <td><%= rod.eta_warehouse %></td>
-  <td><%= rod.po %></td>
-  <td><%= rod.cartons_shipping %></td>
-  <td><%= rod.quantity_shipping %></td>
-</tr>
+<%= notice %>
+<%= form_for "rod[]", :url => {:action => "multiple_rod_info"}, html: {multipart: true , :class=>"form-rod"}  do |f| %>
+  <table>
+    <thead>
+      <tr>
+        <th nowrap>ID</th>
+        <th nowrap>Photo</th>
+        <th nowrap>Name</th>
+        <th nowrap>Price Painted</th>
+        <th nowrap>Price Plated</th>
+        <th nowrap>Model</th>
+        <th nowrap>Rod Length</th>
+        <th nowrap>Color</th>
+        <th nowrap>Retail</th>
+        <th nowrap>Finish Technique</th>
+        <th nowrap>Factory</th>
+        <th nowrap>FOB</th>
+        <th nowrap>Landed</th>
+        <th nowrap>AMG Sell</th>
+        <th nowrap>Total FOB</th>
+        <th nowrap>Total Landed</th>
+        <th nowrap>Total AMG Sell</th>
+        <th nowrap>Total Retail Sales</th>
+        <th nowrap>AMG Margin</th>
+        <th nowrap>Retail Margin</th>
+        <th nowrap>First Shipment Quantity</th>
+        <th nowrap>Total Wave 2 Quantity</th>
+        <th nowrap>40'HQ Container Max</th>
+        <th nowrap>Brand</th>
+        <th nowrap>Status</th>
+        <th nowrap>Port</th>
+        <th nowrap>ITS</th>
+        <th nowrap>ETD</th>
+        <th nowrap>ETA Port</th>
+        <th nowrap>ETA Warehouse</th>
+        <th nowrap>PO</th>
+        <th nowrap>Cartons Shipping</th>
+        <th nowrap>Quantity Shipping</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% unless @rods.blank? %>  
+        <% @rods.each_with_index do |rod, index| %>
+          <tr>
+            <td><%= index+1 %><%#= link_to(@rod) rods_path %></td> 
+            <td>
+              <%= image_tag rod.avatar.url(:thumb) %>
+              <%= f.file_field :avatar %> 
+            </td>
+            <%= f.hidden_field :id, :value => rod.id %>
+            <td><%= f.text_field :name, :value => rod.name %></td>
+            <td><%= f.text_field :price_painted, :value=> rod.price_painted %></td>
+            <td><%= f.text_field :price_plated, :value=> rod.price_plated%></td>
+            <td><%= f.text_field :model, :value=> rod.model %></td>
+            <td><%= f.text_field :rod_length, :value=> rod.rod_length %></td>
+            <td><%= f.text_field :color, :value => rod.color %></td>
+            <td><%= f.text_field :retail, :value => rod.retail %></td>
+            <td><%= f.text_field :finish_technique, :value => rod.finish_technique %></td>
+            <td><%= f.text_field :factory, :value => rod.factory %></td>
+            <td><%= f.text_field :fob, :value => rod.fob %></td>
+            <td><%= f.text_field :landed, :value => rod.landed %></td>
+            <td><%= f.text_field :amg_sell, :value => rod.amg_sell %></td>
+            <td><%= f.text_field :total_fob, :value => rod.total_fob %></td>
+            <td><%= f.text_field :total_landed, :value => rod.total_landed %></td>
+            <td><%= f.text_field :total_amg_sell, :value => rod.total_amg_sell %></td>
+            <td><%= f.text_field :total_retail_sales, :value => rod.total_retail_sales %></td>
+            <td><%= f.text_field :amg_margin, :value => rod.amg_margin %></td>
+            <td><%= f.text_field :retail_margin, :value => rod.retail_margin %></td>
+            <td><%= f.text_field :first_shipment_quantity, :value => rod.first_shipment_quantity %></td>
+            <td><%= f.text_field :total_wave_2_quantity, :value => rod.total_wave_2_quantity %></td>
+            <td><%= f.text_field :forty_hq_container_max, :value => rod.forty_hq_container_max %></td>
+            <td><%= f.text_field :brand, :value => rod.brand %></td>
+            <td><%= f.text_field :status, :value => rod.status %></td>
+            <td><%= f.text_field :port, :value => rod.port %></td>
+            <td><%= f.text_field :its_inspection_date, :value => rod.its_inspection_date %></td>
+            <td><%= f.text_field :etd, :value => rod.etd %></td>
+            <td><%= f.text_field :eta_port, :value => rod.eta_port %></td>
+            <td><%= f.text_field :eta_warehouse, :value => rod.eta_warehouse %></td>
+            <td><%= f.text_field :po, :value => rod.po %></td>
+            <td><%= f.text_field :cartons_shipping, :value => rod.cartons_shipping %></td>
+            <td><%= f.text_field :quantity_shipping, :value => rod.quantity_shipping %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+    
+    <%= f.submit "update rod",:class=>"btn"%>
   <% end %>
-</tbody>
-</table>
-
-
-<%= form_for(@rod) do |f| %>
-  <%= f.fields_for :rods do |rod| %>
-    <p>
-    <%= rod.text_field :name %><br>
-    </p>
-  <% end %>
-
-  <%= f.submit %>
 <% end %>
+
+<%#= form_for(@rod) do |f| %>
+  <%#= f.fields_for :rods do |rod| %>
+    <p>
+    <%#= rod.text_field :name %><br>
+    </p>
+  <%# end %>
+
+  <%#= f.submit %>
+<%# end %>
 
 
 <!--
