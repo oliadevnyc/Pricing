@@ -14,7 +14,9 @@ class RodsController < ApplicationController
   end
 
   def new
-    @rod = Rod.new
+    @rods = []
+    @rods << Rod.new
+#    @rod = Rod.new
   end
 
   def edit
@@ -22,10 +24,10 @@ class RodsController < ApplicationController
   end
 
   def update
-    @rod = Rod.find_by(params[:rod][:id])
-    @rod.update_attributes(rod_params)
-    flash[:notice] = 'Reports were successfully updated.'
-    redirect_to :action => "index"
+    @rod = Rod.find(params[:rod][:id])
+    @rod.update(rod_params)
+#    flash[:notice] = 'Reports were successfully updated.'
+#    redirect_to :action => "index"
 
 
 
@@ -38,14 +40,31 @@ class RodsController < ApplicationController
   end
 
   def create
-    @rod = Rod.create(rod_params)
-    redirect_to rod_path(@rod)
+#    rods.map {|rod| Rod.new(rod).save }
+
+    #@rod = Rod.create(rod_params)
+    @rod = Rod.new(rod_params)
+
+    # if params.has_key?("rods")
+    #   Rod.create(rod_params(params["rod"]))
+    # else
+    #   params["rods"].each do |rod|
+    #     if rod['name'] != ""
+    #       Rod.create(rod_params(rod))
+    #     end
+    #   end
+    # end
+
+     redirect_to rods_path(@rod)
+  end
+#|| rod["price_painted"].to_i != ""
+  private
+  def set_rod
+    @rod = Rod.find(params[:id])
   end
 
-  private
-
   def rod_params
-    params.require(:rod).permit(:name, :avatar, :price_painted, :price_plated, :model, :rod_length)
+    params.require(:rod).permit(:id, :name, :avatar, :price_painted, :price_plated, :model, :rod_length)
   end
 
 end

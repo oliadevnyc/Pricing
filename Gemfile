@@ -19,6 +19,7 @@ gem "paperclip"
 gem 'rails_12factor', group: :production
 gem 'aws-sdk'
 gem "figaro"
+gem 'httparty'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

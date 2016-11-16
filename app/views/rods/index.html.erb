@@ -98,10 +98,44 @@ th {
 </tbody>
 </table>
 
-<%=@rods.each do |rod| %>
-  <%= form_for rod do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit %>
+
+<%= form_for(@rod) do |f| %>
+  <%= f.fields_for :rods do |rod| %>
+    <p>
+    <%= rod.text_field :name %><br>
+    </p>
   <% end %>
 
+  <%= f.submit %>
 <% end %>
+
+
+<!--
+<%= form_tag rods_path do %>
+<% @rods.each do |rod| %>
+<%= fields_for 'rods[]', rod do |r| %>
+
+    <div class="field">
+      <%= r.label :name %><br>
+      <%= r.text_field :name %>
+    </div>
+    <div class="field">
+      <%= r.label :price_painted %><br>
+      <%= r.text_field :price_painted %>
+    </div>
+
+  <% end %>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %> -->
+
+
+
+<%#=@rods.each do |rod| %>
+  <%#= form_for rod do |f| %>
+    <%#= f.text_field :name %>
+    <%#= f.submit %>
+  <%# end %>
+<%# end %>
