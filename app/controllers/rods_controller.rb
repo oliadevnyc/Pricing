@@ -38,7 +38,7 @@ class RodsController < ApplicationController
 
     #  @rod.update_attributes(rods_params)
   end
-  
+
   def multiple_rod_info
     params[:rod].each do |param|
       Rod.find_by_id(param[:id]).update(param.permit!)
@@ -72,8 +72,16 @@ class RodsController < ApplicationController
   end
 
   def rod_params
-    params.require(:rod).permit(:id, :name, :avatar, 
-      :price_painted, :price_plated, :model, :rod_length)
+    params.require(:rod).permit(:id, :name, :avatar,
+      :price_painted, :price_plated, :model, :rod_length,
+      :photo_content_type, :photo_file_size, :photo_updated_at,
+      :avatar_file_name, :avatar_content_type, :avatar_file_size,
+      :avatar_updated_at, :photo_file_name, :color, :retail, :finish_technique,
+      :factory, :fob, :landed, :amg_sell, :total_fob, :total_landed,
+      :total_amg_sell, :total_retail_sales, :amg_margin, :retail_margin,
+      :first_shipment_quantity, :total_wave_2_quantity, :forty_hq_container_max,
+      :brand, :status, :port, :its_inspection_date, :etd, :eta_port,
+      :eta_warehouse , :po, :cartons_shipping, :quantity_shipping)
   end
 
 end
